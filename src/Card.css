@@ -1,0 +1,84 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #F0F2F5;
+  min-height: 100vh; 
+  box-sizing: border-box;
+   transition: transform 0.3s ease;
+}
+
+.card {
+  width: 300px;
+  height: 450px;
+  margin: 20px;
+  background-color: #F9FAFB;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(135, 46, 46, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.explore-btn,
+.edit-btn,
+.delete-btn {
+  background-color: #14B8A6;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 6px 12px;
+  color: black;
+  transition: all 0.2s ease;
+}
+
+.explore-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+  background-color: #d66d5b;
+  transform: scale(1.05);
+}
+

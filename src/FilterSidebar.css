@@ -1,0 +1,181 @@
+
+.sidebar-container {
+  position: fixed;
+  top: 65px; 
+  left: 0;
+  height: calc(100vh - 65px);
+  display: flex;
+  align-items: stretch;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  z-index: 1500;
+  background: transparent;
+}
+
+
+
+.sidebar-container.open {
+  width: auto;
+  transition: width 0.3s ease;
+  height: auto;
+}
+.sidebar-container.closed {
+  width: 0px; 
+  overflow: hidden;
+}
+
+.sidebar-content {
+  width: 260px;
+  background: #fff;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px 20px 25px;
+  box-sizing: border-box;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow-y: auto;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-container.closed .sidebar-content {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+
+.sidebar-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 25px;
+  user-select: none;
+}
+
+
+.state-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 75vh;
+  overflow-y: auto;
+  user-select: none;
+}
+
+.state-list li {
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #444;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding-left: 28px;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checkbox-container:hover .checkmark {
+  background-color: #cde6e4;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #14b8a6;
+  box-shadow: 0 0 6px #14b8a6;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+.toggle-arrow {
+  position: fixed;
+  top:70px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.toggle-arrow:hover {
+  background-color: #14b8a6;
+  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.7);
+}
+
+.toggle-arrow svg {
+  stroke: #555;
+  transition: stroke 0.3s ease;
+}
+
+.toggle-arrow:hover svg {
+  stroke: white;
+}
+
+
+.state-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.state-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.state-list::-webkit-scrollbar-thumb {
+  background: #14b8a6;
+  border-radius: 10px;
+}
+
+
