@@ -34,13 +34,13 @@ const Layout = ({ userName, onPostClick, children }) => {
 };
 
 const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [userName, setUserName] = useState(() => localStorage.getItem('userName') || '');
   const [allPlaces, setAllPlaces] = useState([]);
   const [selectedStates, setSelectedStates] = useState("All");
   const [showModal, setShowModal] = useState(false);
   const [editingPlace, setEditingPlace] = useState(null);
   const [filterStates, setFilterStates] = useState(["Andhra Pradesh", "Telangana", "Karnataka", "Tamil Nadu", "Kerala"]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Initial load
   useEffect(() => {
@@ -112,21 +112,25 @@ const App = () => {
             path="/home"
             element={
               <RequireAuth userName={userName}>
-                <div style={{ display: 'flex' }}>
+  <div style={{ display: 'flex' }}>
   <FilterSidebar 
     onSelectStates={setSelectedStates} 
     stateOptions={filterStates} 
     isSidebarOpen={isSidebarOpen}
-    toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+    //toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+    toggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
   />
 
-  <div className="card-container" 
-    style={{ 
-      flex: 1, 
-      padding: '20px', 
-      transition: 'margin-left 0.3s ease', 
-      marginLeft: isSidebarOpen ? '0' : '0'  
-    }}>
+  <div
+  className="card-container"
+  style={{
+    flex: 1,
+    padding: '20px',
+    transition: 'margin-left 0.3s ease',
+    marginLeft: isSidebarOpen ? '280px' : '0'
+  }}
+>
+
     {filteredPlaces.map((place) => (
       <Card
         key={place.id}
