@@ -125,7 +125,7 @@ const App = () => {
       flex: 1, 
       padding: '20px', 
       transition: 'margin-left 0.3s ease', 
-      marginLeft: isSidebarOpen ? '0' : '0'  // <== add this line
+      marginLeft: isSidebarOpen ? '0' : '0'  
     }}>
     {filteredPlaces.map((place) => (
       <Card
